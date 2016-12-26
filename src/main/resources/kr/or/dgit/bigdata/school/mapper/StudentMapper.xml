@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:인터페이스 경로.클래스이름 -->
+<mapper namespace="kr.or.dgit.bigdata.school.dao.StudentDao">
+	<resultMap type="Student" id="StudentResult">
+		
+		<!-- property:dto에서 테이블의 column명을 받는 값 -->
+		<!-- column:테이블의 column명-->
+		<id property="studId" column="stud_id"/> <!-- student테이블에서 stud_id가 기본키이므로 id 태그 사용 -->
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="dob" column="dob" />
+	</resultMap>
+	
+	<!-- id:메소드 이름, resultMap:별명 -->
+	<select id="selectByAll" resultMap="StudentResult"> 
+		select * from student  
+	</select>
+	
+	<select id="selectByNo" parameterType="int" resultMap="StudentResult">
+		select * from student where stud_id	= #{studId}
+	</select>
+	
+	<insert id="insertItem" parameterType="Student">
+		insert into student values( #{studId}, #{name}, #{email}, #{dob})
+	</insert>
+	
+	<delete id="deleteItem" parameterType="int">
+		delete from student where stud_id = #{idx}
+	</delete>
+	
+	<update id="updateItem" parameterType="Student">
+		update student set name = #{name}, email = #{email}, dob = #{dob} where stud_id = #{studId};
+	</update>
+</mapper>
