@@ -26,34 +26,34 @@ public class StudentServiceTest {
 		studentService = null;
 	}
 	
-//	@Test
-//	public void test() {
-//		List<Student> list = StudentService.getInstance().findAllStudent();
-//		Assert.assertNotNull(list);
-//		for(Student s: list){
-//			System.out.println(s);
-//		}
-//	}
-//	
-//	@Test
-//	public void testSelectByNo(){
-//		Student std = StudentService.getInstance().selectByNo(3);
-//		Assert.assertNotNull(std);
-//	}
-
+	@Test
+	public void test() {
+		List<Student> list = StudentService.getInstance().findAllStudent();
+		Assert.assertNotNull(list);
+		for(Student s: list){
+			System.out.println(s);
+		}
+	}
 	
 	@Test
-	public void testInsertItem(){
-		Calendar cal = Calendar.getInstance();
-		cal.set(1995, 3-1, 8);
-		
-		Student insStd = new Student(6, "보루미둥이", "senoyrida@naver.com", cal.getTime(), new PhoneNumber("010-2678-4160"));
-		studentService.insertItem(insStd);
-		
-		List<Student> list = studentService.findAllStudent();
-		
-		Assert.assertEquals(6, list.size());
+	public void testSelectByNo(){
+		Student std = StudentService.getInstance().selectByNo(3);
+		Assert.assertNotNull(std);
 	}
+
+	
+//	@Test
+//	public void testInsertItem(){
+//		Calendar cal = Calendar.getInstance();
+//		cal.set(1995, 3-1, 8);
+//		
+//		Student insStd = new Student(6, "보루미둥이", "senoyrida@naver.com", cal.getTime(), new PhoneNumber("010-2678-4160"));
+//		studentService.insertItem(insStd);
+//		
+//		List<Student> list = studentService.findAllStudent();
+//		
+//		Assert.assertEquals(6, list.size());
+//	}
 	
 //	
 //	@Test
