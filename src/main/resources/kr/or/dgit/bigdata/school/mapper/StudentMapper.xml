@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace:인터페이스 경로.클래스이름 -->
 <mapper namespace="kr.or.dgit.bigdata.school.dao.StudentDao">
+
 	<resultMap type="Student" id="StudentResult">
 		
 		<!-- property:dto에서 테이블의 column명을 받는 값 -->
@@ -12,11 +13,13 @@
 	</resultMap>
 	
 	<!-- id:메소드 이름, resultMap:별명 -->
-	<select id="selectByAll" resultMap="StudentResult"> 
+	<!-- resultType="Student"로 바뀐 이유 : config.xml에서 setting을 해주었기 때문에 -->
+	<!-- 철자 자체가 다르면 resultMap으로 해야함 -->
+	<select id="selectByAll" resultType="Student"> 
 		select * from student  
 	</select>
 	
-	<select id="selectByNo" parameterType="int" resultMap="StudentResult">
+	<select id="selectByNo" parameterType="int" resultType="Student">
 		select * from student where stud_id	= #{studId}
 	</select>
 	

@@ -24,7 +24,7 @@ public class StudentServiceTest {
 	public static void tearDownAfterClass() throws Exception {
 		studentService = null;
 	}
-	/*
+	
 	@Test
 	public void test() {
 		List<Student> list = StudentService.getInstance().findAllStudent();
@@ -33,7 +33,7 @@ public class StudentServiceTest {
 			System.out.println(s);
 		}
 	}
-	
+	/*
 	@Test
 	public void testSelectByNo(){
 		Student std = StudentService.getInstance().selectByNo(3);
@@ -62,7 +62,7 @@ public class StudentServiceTest {
 		Student std = StudentService.getInstance().selectByNo(1);
 		Assert.assertNull(std); //null이 와야함.
 	}
-	*/
+	
 	@Test
 	public void testUpdateItem(){
 		Calendar cal = Calendar.getInstance();
@@ -80,5 +80,5 @@ public class StudentServiceTest {
 		Assert.assertEquals(selectItem, std);
 		
 	}
-	
+	*/
 }
